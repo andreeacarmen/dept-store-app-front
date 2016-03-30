@@ -1,0 +1,27 @@
+<div class="page-header">
+    <h1>Login</h1>
+</div>
+
+<div ng-show="loginError" class="alert alert-danger" role="alert">{{message || 'Failed to login!'}}</div>
+
+<form class="form-signin">
+    <h2 class="form-signin-heading">Please sign in</h2></label>
+    <input type="text" id="username" class="form-control" placeholder="Username" ng-model="username">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="password">
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="login();">Sign in</button>
+</form>
+
+<style type="text/css">
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin button {
+    margin-top: 40px;
+}
+.form-signin a {
+    margin: 10px 0;
+}
+</style>
