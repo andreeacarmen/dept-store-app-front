@@ -14,20 +14,32 @@
             })
             .when('/query',{
                 templateUrl: 'Templates/query.html',
-                controller: 'LoginController'
+                controller: 'QueryController'
+            })
+            .when('/item/:id',{
+                templateUrl: 'Templates/item.html',
+                controller: 'ItemController'
+            })
+            .when('/cart',{
+                templateUrl: 'Templates/cart.html',
+                controller: 'CartController'
             })
     }])
     
     app.run(['$rootScope', '$location', '$cookieStore', '$http', function($rootScope, $location, $cookieStore, $http) {
         // keep user logged in after page refresh
-        $rootScope.globals = $cookieStore.get('globals') || {};
+        $rootScope.globals = $cookieStore.get('app-data') || {};
 
         if($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = $rootScope.globals.currentUser.token;
         }
 
+         $location.path('/cart');
+         /*
         if(!$rootScope.globals.currentSession){
             $location.path('/login');
+        } else {
+            $location.path('/query');
         }
 /*
         if ($rootScope.globals.currentUser && ($location.path() === '/login' )) {

@@ -16,7 +16,7 @@
         <link href="Templates/css/styles.css" rel="stylesheet">
    </head>
 
-<body ng-controller="QueryController">
+<body ng-controller="CartController">
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
@@ -37,15 +37,6 @@
             <li><a href="#">Log out</a></li>
           </ul>
 
-           <form name="searchForm" class="navbar-form navbar-right" ng-submit="getQuery()" >
-         
-              <input type="text" name="searchQuery"
-                     ng-model="queryText"
-                     ng-model-options="{ updateOn: 'submit'}"
-                     class="form-control" placeholder="Search...">
-             </input>
-    <br />
-          </form>
 
           <!--form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -60,13 +51,6 @@
         
          <div class="col-sm-6 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
            
-            <ul class="nav nav-sidebar">
-              <li class="active"><a href="#">Search products</a></li>
-              <li><a href="http://bootstrapzero.com" target="_ext">Home</a></li>
-              <li><a href="http://bootstrap.theme.cards" target="_ext">About</a></li>
-              <li><a href="https://wrapbootstrap.com?ref=skelly" target="_ext">Order logs</a></li>
-            </ul>
-           
         </div><!--/span-->
         
         <div class="col-sm-9 col-md-10 main">
@@ -76,31 +60,17 @@
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
           </p>
           
-          <h1 >
-          
-            products
-            <span>
-              <button ng-click="order('price')" class="btn btn-default btn-xs">Price </button>
-              <span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span>
-           </span>
-
-           <div ng-dropdown-multiselect="" options="example1data" selected-model="example1model">
-           </div>
-
-        </h1>
         
           <hr>
 
           <div class="row placeholders" name="items">
 
-            <div ng-repeat="product in products track by $index">
+            <div ng-repeat="orderedProduct in orderedProducts track by $index">
       
               <span class="col-xs-6 col-sm-3 placeholder text-center">
                 <img src="//placehold.it/200/6666ff/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
-                <h4>{{product.articleName}}</h4>
-                <span class="text-muted">Pret: {{product.price}}$ >> </span>
-                
-                <a href="#/item/{{product.id}}">Buy</a>
+                <h4>{{orderedProduct.id}}</h4>
+                <span class="text-muted">Quantity: {{orderedProduct.quantity}}$ >> </span>
 
                 <hr>
               </span>
@@ -109,6 +79,7 @@
           
       </div><!--/row-->
     </div>
+   <button type="submit" class="btn btn-default pull-right" ng-click = "sendOrder();">Send Order </button>
 </div><!--/.container-->
 
 

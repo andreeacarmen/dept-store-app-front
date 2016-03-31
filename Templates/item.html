@@ -1,0 +1,23 @@
+<div class="page-header" ng-controller="ItemController">
+<h1>Article Details</h1>
+</div>
+<div class="item-query">
+<h2>Article name: {{item.articleName}}</h2>
+<label>Description</label>
+<p>{{item.description}}</p>
+<p>Price: {{item.price}}</p>
+<p>Remaining: {{item.quantity}}</p>
+<p>Supplier: {{item.supplierID.name}}</p>
+</div>
+
+<form class="clearfix" name="BuyForm">
+	<div>
+		Quantity: <input ng-keyup='submit' name="Count" type="number" ng-model="ProductToAdd" ng-model-options="{ updateOn: 'blur'}" />
+	</div>
+	<span>
+	<a href="http://localhost/dept-store-app-front/#/query" class="btn btn-primary" ng-click="addToCart()">Buy</a>
+	</span>
+	<span>
+	<a href="http://localhost/dept-store-app-front/#/query" class="btn btn-primary">Back to Articles List</a>
+	</span>
+</form>

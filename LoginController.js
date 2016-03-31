@@ -6,6 +6,15 @@
     LoginController.$inject = ['$scope', '$rootScope', '$cookieStore', '$location', '$http', '$controller'];
 
     function LoginController($scope, $rootScope, $cookieStore, $location, $http) {
+        $scope.products = {};
+
+        $scope.prd = function getProducts() {
+            $http.get('http://localhost:8080/query').then(function(response) {
+                $scope.products = response.data;
+                console.log($scope.products);
+            });
+        };
+
         $scope.login = function(){
                 $http.post('http://localhost:8080/login', JSON.stringify({
                 username: $scope.username,
@@ -18,12 +27,16 @@
                         currentSession: respounse.data
                     };
                     $location.path('/query');
+                    $scope.cart = [];
+                    $cookieStore.put('cart', $scope.cart);
                     //$window.location.href = '/query';
                     console.log($rootScope.globals.currentSession.sid)
                     
-                    //$cookieStore.put('app-data', $rootScope.globals);
+                    $cookieStore.put('app-data', $rootScope.globals);
+                    $scope.prd();
                 }
             });
         }
+
     }
 })();
