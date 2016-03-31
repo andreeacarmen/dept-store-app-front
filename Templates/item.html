@@ -1,8 +1,54 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Dept-store-query</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        <!--[if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!--[if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link href="Templates/css/styles.css" rel="stylesheet">
+   </head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/query">dept-store-app</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/cart">Cart</a></li>
+            <li><a href="#/profile">Profile</a></li>
+            <li><a href="#/login">Log out</a></li>
+          </ul>
+
+
+        </div>
+      </div>
+</nav>
+
 <div class="page-header" ng-controller="ItemController">
 <h1>Article Details</h1>
 </div>
+<div class="container">
 <div class="item-query">
 <h2>Article name: {{item.articleName}}</h2>
+<img src="http://i.imgur.com/DltadiR.jpg" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
+<div name="separator"></div>
 <label>Description</label>
 <p>{{item.description}}</p>
 <p>Price: {{item.price}}</p>
@@ -14,10 +60,60 @@
 	<div>
 		Quantity: <input ng-keyup='submit' name="Count" type="number" ng-model="ProductToAdd" ng-model-options="{ updateOn: 'blur'}" />
 	</div>
+	<div name="separator"></div>
 	<span>
-	<a href="http://localhost/dept-store-app-front/#/query" class="btn btn-primary" ng-click="addToCart()">Buy</a>
+	<a href="http://localhost/dept-store-app-front/#/query" class="btn btn-default" ng-click="addToCart()">Buy</a>
 	</span>
+	<span></span>
 	<span>
-	<a href="http://localhost/dept-store-app-front/#/query" class="btn btn-primary">Back to Articles List</a>
+	<a href="http://localhost/dept-store-app-front/#/query" class="btn btn-default">Back to Articles List</a>
 	</span>
 </form>
+</div>
+
+</body>
+    <hr>
+    <footer>
+      <p class="pull-right">©dbjavaschoolteamrock</p>
+    </footer>
+    </body>
+    <style type="text/css">
+body {
+  padding-top: 50px;
+  background-color: #3D3C3C;
+  color:#BEF06D;
+}
+.container{
+	margin:auto;
+	width: 60%;
+	padding: 10px;
+}
+.separator{
+        padding: 15px;
+}
+.item-query {
+    max-width: 330px;
+    padding: 15px;
+    margin: auto auto;
+    text-align: center;
+}
+.item-query  , .clearfix button {
+    margin-top: 40px;
+    background: rgba(0,0,0,0);
+    border: solid 1px #7ECA05;
+}
+.clearfix button.hover {
+  border-color: #C0FF5A;
+  background-color:yellow;
+}
+.item-query button:hover,
+.item-query button.hover {
+  border-color: #C0FF5A;
+  background-color:#7ECA05;
+}
+
+.item-query , .clearfix a {
+    margin: 10px 0;
+}
+</style>
+</html>

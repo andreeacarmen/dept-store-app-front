@@ -13,7 +13,8 @@
         }();
         
         $scope.sendOrder = function(){
-            $http({url: 'http://localhost:8080/order?sid=' + $rootScope.globals.currentSession.sid, method: "GET", data : $scope.orderedProducts
+            console.log($scope.orderedProducts);
+            $http({url: 'http://localhost:8080/order?sid=' + $rootScope.globals.currentSession.sid, method: "POST", data : $scope.orderedProducts
             }).then(function(respounse){
                 if(respounse.data == ""){
                     $scope.loginError =  true;

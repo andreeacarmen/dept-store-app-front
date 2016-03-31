@@ -1,3 +1,6 @@
+<html>
+<link href="Templates/css/styles.css" rel="stylesheet">
+<body>
 <div class="page-header">
     <h1>Login</h1>
 </div>
@@ -7,21 +10,40 @@
 <form class="form-signin">
     <h2 class="form-signin-heading">Please sign in</h2></label>
     <input type="text" id="username" class="form-control" placeholder="Username" ng-model="username">
+    <div class="separator"></div>
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="password">
     <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="login();">Sign in</button>
 </form>
-
+</body>
 <style type="text/css">
+body {
+  padding-top: 50px;
+  background-color: #3D3C3C;
+  color:#BEF06D;
+}
+.separator{
+        padding: 5px;
+}
 .form-signin {
     max-width: 330px;
     padding: 15px;
     margin: 0 auto;
+    text-align: center;
 }
 .form-signin button {
     margin-top: 40px;
+    background: rgba(0,0,0,0);
+    border: solid 1px #7ECA05;
 }
+
+.form-signin button:hover,
+.form-signin button.hover {
+  border-color: #C0FF5A;
+  background-color:#7ECA05;
+}
+
 .form-signin a {
     margin: 10px 0;
 }
-</style>
+</style></html>

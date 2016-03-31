@@ -27,14 +27,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">dept-store-app</a>
+          <a class="navbar-brand" href="#/query">dept-store-app</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Log out</a></li>
+            <li><a href="#/cart">Cart</a></li>
+            <li><a href="#/profile">Profile</a></li>
+            <li><a href="#/login">Log out</a></li>
           </ul>
 
            <form name="searchForm" class="navbar-form navbar-right" ng-submit="getQuery()" >
@@ -93,10 +92,10 @@
 
           <div class="row placeholders" name="items">
 
-            <div ng-repeat="product in products track by $index">
+            <div ng-repeat="product in products | orderBy:'-articleName' track by $index">
       
               <span class="col-xs-6 col-sm-3 placeholder text-center">
-                <img src="//placehold.it/200/6666ff/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
+                <img src="http://i.imgur.com/DltadiR.jpg" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
                 <h4>{{product.articleName}}</h4>
                 <span class="text-muted">Pret: {{product.price}}$ >> </span>
                 

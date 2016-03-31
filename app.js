@@ -34,8 +34,6 @@
             $http.defaults.headers.common['Authorization'] = $rootScope.globals.currentUser.token;
         }
 
-         $location.path('/cart');
-         /*
         if(!$rootScope.globals.currentSession){
             $location.path('/login');
         } else {
