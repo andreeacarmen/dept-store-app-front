@@ -1,0 +1,47 @@
+(function(){
+    'use strict';
+
+    var controllerModule = angular.module('controllerModule', [])
+        .controller('MainController', MainController);
+
+    MainController.$inject = ['$scope', '$controller', '$window', '$http'];
+
+    function MainController($scope, $controller, $window, $http) {
+
+		$scope.products = {};
+
+        function getProducts() {
+            $http.get('localhost:8080/query').then(function(response) {
+                $scope.todos = response.data;
+            });
+        }
+
+        getProducts();
+
+        $scope.addProduct = function() {
+            if($scope.productToAdd) {
+                $http.post('localhost:8080/product', {
+                    name: $scope.productToAdd.name,
+                    supplier: $scope.productToAdd.supplier,
+                    quantity: $scope.productToAdd.quantity,
+                }).then(function(response) {
+                    $scope.todoToAdd = undefined;
+                    getTodos();
+                    $scope.todoForm.$setUntouched();
+                    $scope.todoForm.$setPristine();
+                });
+            }
+        }
+
+        $scope.removeTodo = function(todo) {
+            TodoService.removeTodo(todo._id).then(function(response) {
+                getTodos();
+            });
+        }
+
+        $scope.toggleChecked = function(todo) {
+            todo.done = !todo.done;
+        }
+
+    }
+})();

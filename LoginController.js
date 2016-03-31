@@ -11,14 +11,16 @@
                 username: $scope.username,
                 password: $scope.password
             })).then(function(respounse){
-                $location.path('/login');
                 if(respounse.data == ""){
-                    window.alert("Login failed!")
+                    $scope.loginError =  true;
                 } else {
                     $rootScope.globals = {
                         currentSession: respounse.data
                     };
+                    $location.path('/query');
+                    //$window.location.href = '/query';
                     console.log($rootScope.globals.currentSession.sid)
+                    
                     //$cookieStore.put('app-data', $rootScope.globals);
                 }
             });

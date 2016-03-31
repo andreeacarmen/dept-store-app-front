@@ -12,6 +12,10 @@
                 templateUrl: 'Templates/login.html',
                 controller: 'LoginController'
             })
+            .when('/query',{
+                templateUrl: 'Templates/query.html',
+                controller: 'LoginController'
+            })
     }])
     
     app.run(['$rootScope', '$location', '$cookieStore', '$http', function($rootScope, $location, $cookieStore, $http) {
@@ -22,17 +26,22 @@
             $http.defaults.headers.common['Authorization'] = $rootScope.globals.currentUser.token;
         }
 
-        if ($rootScope.globals.currentUser && ($location.path() === '/login' || $location.path() === '/register')) {
+        if(!$rootScope.globals.currentSession){
+            $location.path('/login');
+        }
+/*
+        if ($rootScope.globals.currentUser && ($location.path() === '/login' )) {
             $location.path('/');
             $http.defaults.headers.common['Authorization'] = $rootScope.globals.currentUser.token;
         }
   
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in
-            if ($location.path() !== '/login' && !$rootScope.globals.currentUser && $location.path() !== '/register') {
+            if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
                 $location.path('/login');
             }
         });
+*/
     }]);
 
 })();
