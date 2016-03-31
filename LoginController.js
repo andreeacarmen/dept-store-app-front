@@ -7,6 +7,9 @@
 
     function LoginController($scope, $rootScope, $cookieStore, $location, $http) {
         $scope.products = {};
+        $cookieStore.put('app-data', undefined);
+        $cookieStore.put('cart', []);
+
 
         $scope.prd = function getProducts() {
             $http.get('http://localhost:8080/query').then(function(response) {

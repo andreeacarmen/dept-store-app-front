@@ -24,6 +24,19 @@
                 templateUrl: 'Templates/cart.html',
                 controller: 'CartController'
             })
+            .when('/about',{
+                templateUrl: 'Templates/about.html'
+            })
+            .when('/finalize',{
+                templateUrl: 'Templates/finalize.html'
+            })
+            .when('/error', {
+                templateUrl: 'Templates/notfound.html'
+            })
+            .otherwise({
+                redirectTo: '/error'
+            })
+
     }])
     
     app.run(['$rootScope', '$location', '$cookieStore', '$http', function($rootScope, $location, $cookieStore, $http) {

@@ -61,9 +61,9 @@
            
             <ul class="nav nav-sidebar">
               <li class="active"><a href="#">Search products</a></li>
-              <li><a href="http://bootstrapzero.com" target="_ext">Home</a></li>
-              <li><a href="http://bootstrap.theme.cards" target="_ext">About</a></li>
-              <li><a href="https://wrapbootstrap.com?ref=skelly" target="_ext">Order logs</a></li>
+              <li><a href="#/query">Home</a></li>
+              <li><a href="#/about">About</a></li>
+              <li><a href="#/logs">Order logs</a></li>
             </ul>
            
         </div><!--/span-->
@@ -79,7 +79,9 @@
           
             products
             <span>
-              <button ng-click="order('price')" class="btn btn-default btn-xs">Price </button>
+              <button ng-click="order('+price')" class="btn btn-default btn-xs">ascending by price</button>
+              <button ng-click="order('-price')" class="btn btn-default btn-xs">descending by price </button>
+              <button ng-click="order('+name')" class="btn btn-default btn-xs">by name</button>
               <span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span>
            </span>
 
@@ -92,7 +94,7 @@
 
           <div class="row placeholders" name="items">
 
-            <div ng-repeat="product in products | orderBy:'-articleName' track by $index">
+            <div ng-repeat="product in products | orderBy:sortFilter track by $index">
       
               <span class="col-xs-6 col-sm-3 placeholder text-center">
                 <img src="http://i.imgur.com/DltadiR.jpg" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">

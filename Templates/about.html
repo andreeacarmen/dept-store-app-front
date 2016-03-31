@@ -1,0 +1,107 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Dept-store-query</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        <!--[if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!--[if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link href="Templates/css/styles.css" rel="stylesheet">
+   </head>
+
+<body ng-controller="QueryController">
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/query">dept-store-app</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+           <li><a href="#/cart">Cart</a></li>
+            <li><a href="#/profile">Profile</a></li>
+            <li><a href="#/login">Log out</a></li>
+          </ul>
+
+           <form name="searchForm" class="navbar-form navbar-right" ng-submit="getQuery()" >
+         
+              <input type="text" name="searchQuery"
+                     ng-model="queryText"
+                     ng-model-options="{ updateOn: 'submit'}"
+                     class="form-control" placeholder="Search...">
+             </input>
+    <br />
+          </form>
+
+          <!--form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form-->
+        </div>
+      </div>
+</nav>
+
+<div class="container-fluid">
+      
+      <div class="row row-offcanvas row-offcanvas-left">
+        
+         <div class="col-sm-6 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+           
+            <ul class="nav nav-sidebar">
+              <li class="active"><a href="#/query">Search products</a></li>
+              <li><a href="#/query">Home</a></li>
+              <li><a href="#/about">About</a></li>
+              <li><a href="#/log">Order logs</a></li>
+            </ul>
+           
+        </div><!--/span-->
+        
+        <div class="col-sm-9 col-md-10 main">
+          
+          <!--toggle sidebar button-->
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+          
+          <h1 >
+          
+            about
+           
+          </h1>
+        
+          <hr>
+
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique erat lectus, sit amet auctor mauris auctor consequat. Pellentesque vel facilisis nunc. Nulla et tincidunt orci. Cras in porttitor sapien, eu maximus est. Phasellus sit amet egestas augue, vitae rutrum diam. Pellentesque sed aliquet turpis. Etiam vulputate tortor ac nibh ultrices bibendum. Maecenas rhoncus eget diam sit amet aliquet. In dictum a nunc in condimentum. Donec aliquam eget lectus in imperdiet. Donec sed semper mi. Proin sit amet dolor risus. Mauris vel diam mollis, pulvinar felis a, consectetur tortor. Aliquam rutrum nisl vitae enim ullamcorper aliquet. Ut dapibus lacus vel metus vestibulum ultrices.</p>
+<p>
+Sed sodales non quam sed dictum. Curabitur lacinia metus vitae rutrum lacinia. Praesent molestie libero et est aliquam pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam viverra sapien vitae lectus varius, eu hendrerit arcu condimentum. Aliquam non semper lacus. Mauris ac urna pellentesque, scelerisque eros nec, laoreet ex. Vivamus id augue mauris.
+</p>
+Nulla sed erat vitae magna cursus efficitur. Integer porttitor dui eget efficitur vestibulum. Fusce ultricies molestie fringilla. Ut tincidunt semper metus in ultrices. Ut et orci enim. Vestibulum pretium vitae libero id scelerisque. Phasellus eleifend vestibulum suscipit. Cras sagittis erat vitae lorem pretium, quis varius leo scelerisque. Ut ultrices placerat purus, eget bibendum velit ultrices vel. Etiam in rhoncus elit.
+<p>
+Aliquam vestibulum magna in fringilla posuere. Proin nec interdum urna. Etiam eget maximus diam. Phasellus aliquam varius ex, at pretium mauris egestas ut. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin quis erat sit amet lorem varius tempus id et lectus. Donec pretium pulvinar velit gravida suscipit. Etiam vitae volutpat nibh. Donec in venenatis dolor. Etiam eleifend maximus malesuada. Praesent commodo, ante eget interdum sollicitudin, sapien risus blandit est, non gravida metus tortor non diam. Nunc at lorem nec nunc ultricies cursus nec vitae metus. Nunc sodales volutpat sem eget ornare.
+</p>
+<p>
+Sed at mauris ac quam condimentum eleifend. Curabitur id velit in massa cursus dignissim eget ut risus. Aenean ac venenatis purus, non feugiat massa. Duis porttitor blandit libero, iaculis faucibus urna. Vivamus ac purus porta, cursus nisi sed, lobortis velit. Praesent tincidunt bibendum velit ultrices tincidunt. Donec elit mauris, luctus non suscipit imperdiet, tristique porta urna. In suscipit pretium lorem, at euismod tellus finibus a. Fusce malesuada urna id consequat pulvinar. Proin pretium, eros in ornare sodales, tellus sem pretium elit, posuere porttitor nulla risus at mauris. Duis vitae rutrum nisi. Suspendisse lobortis, tortor at venenatis volutpat, quam sem venenatis nisl, eu laoreet nulla erat et dui. Vivamus a venenatis massa, in suscipit lorem. Curabitur vel aliquam neque, blandit congue dui. Suspendisse mollis, elit ac consectetur lobortis, justo erat mattis diam, a dignissim risus ipsum eget urna. </p>
+         
+    </div>
+</div><!--/.container-->
+
+
+    <hr>
+    <footer>
+      <p class="pull-right">©dbjavaschoolteamrock</p>
+    </footer>
+    </body>
+</html>
